@@ -5,7 +5,7 @@
 
 #define BASE_ADDRESS 0b10011000
 
-int InitDAC7573(struct DAC7573_t* instance, uint8_t A0A1Address, float referenceVoltage)
+int DAC7573_Init(struct DAC7573_t* instance, uint8_t A0A1Address, float referenceVoltage)
 {
 	//apply the A0 and A1 bits to the base address
 	instance->I2CAddress = BASE_ADDRESS | (A0A1Address << 1);
@@ -14,7 +14,7 @@ int InitDAC7573(struct DAC7573_t* instance, uint8_t A0A1Address, float reference
 	return 0;
 }
 
-int SetDAC7573Voltage(struct DAC7573_t* instance, uint8_t channel, float voltage)
+int DAC7573_SetVoltage(struct DAC7573_t* instance, uint8_t channel, float voltage)
 {
 	uint16_t dacval = (uint16_t)round(voltage * instance->_VoltageMultiplier);
 	uint8_t controlregister = 0b00010000;
