@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 99)
 
 # add dependencies
 include(cpm/CPM.cmake)
-CPMAddPackage("gh:JeroenVandezande/LowLevelCInterfaces@1.0.6")
+CPMAddPackage("gh:JeroenVandezande/LowLevelCInterfaces@1.2.0")
 
 add_library(DAC7573 DAC7573.c DAC7573.h)
 target_include_directories (DAC7573 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -22,8 +22,8 @@ int DAC7573_SetVoltage(struct DAC7573_t* instance, uint8_t channel, float voltag
 	uint8_t tempArray[] =
 	  {
 		controlregister,
-		(uint8_t)dacval >> 4, //consists of eight most significant bits of 12-bit unsigned binary D/A conversion data
-		(uint8_t)dacval << 4  //consists of the 4 least significant bits of the 12-bit unsigned binary D/A conversion data, followed by 4 don't care bits
+		(uint8_t)(dacval >> 4), //consists of eight most significant bits of 12-bit unsigned binary D/A conversion data
+		(uint8_t)(dacval << 4)  //consists of the 4 least significant bits of the 12-bit unsigned binary D/A conversion data, followed by 4 don't care bits
 	  };
 	instance->i2cWriteDataMethod(instance->I2CAddress, tempArray, 3);
 	return 0;

@@ -15,7 +15,7 @@ struct DAC7573_t
 	//PUBLIC INSTANCE MEMBERS
 	uint8_t I2CAddress;
 	//points to a function to handle the I2C writes
-	I2CMaster_WriteMethod_t i2cWriteDataMethod;
+	LL_I2CMaster_WriteMethod_t i2cWriteDataMethod;
 };
 
 /// Initializes the instance struct
